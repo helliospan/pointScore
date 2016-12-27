@@ -8,6 +8,7 @@ import java.util.Scanner;
  */
 public class PointCalculator {
 
+    String fileName = "C:\\Users\\Сергей\\IdeaProjects\\score.txt";
     private ArrayList<Goal> goalList;
 
     {
@@ -16,7 +17,7 @@ public class PointCalculator {
 
     public void option(){
         Scanner sc = new Scanner(System.in);
-        System.out.println("Enter the menu option: \n1: Insert goal \n2: Add point \n5: View list of goals");
+        System.out.println("Enter the menu option: \n1: Insert goal \n2: Add point \n3: Save \n5: View list of goals");
         int var = sc.nextInt();
 
         if (var == 1){
@@ -35,6 +36,10 @@ public class PointCalculator {
             System.out.println("");
             System.out.println();
 
+            option();
+        }
+        else  if (var == 3){
+            FileManipulator fm = new FileManipulator(fileName);
             option();
         }
         else if (var == 5){
