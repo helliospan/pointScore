@@ -1,5 +1,6 @@
 package main;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -9,11 +10,9 @@ import java.util.Scanner;
 public class PointCalculator {
 
     String fileName = "c:\\polt\\java\\pointScore\\src\\files\\score.txt";
-    private ArrayList<Goal> goalList;
+    private ArrayList<Goal> goalList = new ArrayList<Goal>();
+    FileManipulator fm = new FileManipulator(fileName);
 
-    {
-        goalList = new ArrayList<Goal>();
-    }
 
     public void option(){
         Scanner sc = new Scanner(System.in);
@@ -39,7 +38,7 @@ public class PointCalculator {
             option();
         }
         else  if (var == 3){
-            FileManipulator fm = new FileManipulator(fileName);
+            fm.FileWrite(goalList);
             option();
         }
         else if (var == 5){
@@ -52,6 +51,9 @@ public class PointCalculator {
             option();
         }
         else{
+
+            fm.FileClose();
+
             return;
         }
     }
