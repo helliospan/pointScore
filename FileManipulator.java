@@ -1,4 +1,4 @@
-package pointScore;
+package main;
 
 import java.io.*;
 
