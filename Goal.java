@@ -1,4 +1,4 @@
-package pointScore;
+package main;
 
 /**
  * Created by poltaretskiyss on 22/12/2016.
