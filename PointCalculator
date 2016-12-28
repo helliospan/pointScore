@@ -1,4 +1,4 @@
-package pointScore;
+package main;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -8,7 +8,7 @@ import java.util.Scanner;
  */
 public class PointCalculator {
 
-    String fileName = "C:\\Users\\Сергей\\IdeaProjects\\score.txt";
+    String fileName = "c:\\polt\\java\\pointScore\\src\\files\\score.txt";
     private ArrayList<Goal> goalList;
 
     {
