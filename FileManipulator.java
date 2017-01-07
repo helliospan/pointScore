@@ -8,22 +8,24 @@ import java.util.ArrayList;
  */
 public class FileManipulator {
 
-    FileWriter writer;
+    public static FileWriter writer;
 
-    FileManipulator(String fileName){
+    FileManipulator(String fileName) throws Exception{
         try (FileWriter wr = new FileWriter(fileName, true)){
-            writer = wr;
+            FileManipulator.writer = wr;
         }
         catch (IOException ex){
             System.out.println(ex.getMessage());
         }
 
-        System.out.println("Файл открыт.");
+        //FileManipulator.writer = new FileWriter(fileName, true);
+
+        System.out.println("Файл открыт: " + writer.toString());
     }
 
     void FileWrite(ArrayList<Goal> goals){
-        System.out.println("Чтение и запись массива");
-        for (int i = 0; i < goals.size(); i++){
+        System.out.println("Чтение и запись массива: " +  writer.toString());
+        /*for (int i = 0; i < goals.size(); i++){
             try {
                 //writer.write(goals.get(i).title+";"+goals.get(i).points+";");
                 writer.write("1");
@@ -31,7 +33,14 @@ public class FileManipulator {
             } catch (IOException e) {
                 e.printStackTrace();
             }
+        }*/
+        try{
+            FileManipulator.writer.write("1");
+            writer.flush();
+        } catch (IOException e){
+            e.printStackTrace();
         }
+
     }
 
     void FileClose(){
