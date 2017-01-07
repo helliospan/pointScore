@@ -7,9 +7,11 @@ public class Goal {
 
     String title;
     int points;
+    int target;
 
-    Goal(String title, int points){
+    Goal(String title, int points, int target){
         this.title = title;
         this.points = points;
+        this.target = target;
     }
 }
