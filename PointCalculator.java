@@ -45,7 +45,7 @@ public class PointCalculator {
         printList();
 
         Scanner sc = new Scanner(System.in);
-        System.out.println("Enter the menu option: \n1: Insert goal \n2: Add point \n3: Save \n5: View list of goals");
+        System.out.println("Enter the menu option: \n1: Insert goal \n2: Add point \n3: Save \n5: View list of goals \n6: Exit");
         int var = sc.nextInt();
 
         if (var == 1){
@@ -63,7 +63,7 @@ public class PointCalculator {
             System.out.print("Choose the goal to add point: ");
             int goalNum = sc.nextInt();
             goalList.set(goalNum - 1, new Goal(goalList.get(goalNum - 1).title, goalList.get(goalNum - 1).points + 1, goalList.get(goalNum - 1).target));
-            System.out.println("");
+            System.out.println("Added.");
             System.out.println();
 
             option();
@@ -77,6 +77,9 @@ public class PointCalculator {
         else if (var == 5){
             printList();
             option();
+        }
+        else if (var == 6){
+            return;
         }
         else{
 
@@ -111,8 +114,13 @@ public class PointCalculator {
 
     public static void main(String[] args) {
         PointCalculator pc = new PointCalculator();
-        pc.option();
+        try {
+            pc.option();
 
-        pc.saveToFile();
+        } finally {
+            pc.saveToFile();
+        }
+
+
     }
 }
